@@ -1,0 +1,762 @@
+/*Bu Tasarım Emrah Kahraman tarafından kodlanmıstır.*/
+
+@import "_variable.scss", "_mixins.scss";
+
+body {
+    font-family: "Montserrat";
+    font-size: 15px;
+    width: 100%;
+    min-height: 100vh;
+    background-color: $primary-color;
+}
+a:hover {text-decoration: none;}
+
+//Header#
+#header {
+    width: 100%;
+    background-image: url(../img/header-bg.png);
+    background-position: center;
+    @include size(cover);
+    padding-top: 25px;
+    padding-bottom: 25px;
+    //header-wrapper
+    .header-wrapper {
+        display: flex;
+        justify-content: space-between;
+        //header-logo
+        .header-logo {
+            cursor: pointer;
+            img {
+                @include transition(0.3s);
+                &:hover {
+                    @include scale(1.1);
+                }
+            }
+        }
+        //header-menu
+        .header-menu {
+            padding-top: 25px;
+            li {
+                display: inline-block;
+                margin-right: 30px;
+                &:last-child {
+                    margin-right: 0;
+                }
+                a {
+                    color: $base-color;
+                    font-family: "Montserrat SemiBold";
+                    font-size: 15px;
+                    text-transform: uppercase;
+                    @include transition(0.3s);
+                    &:hover {
+                        color: $primary-color;
+                    }
+                }
+            }
+        }
+        //Tablet
+        @media screen and(max-width: $tablet){
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+//Menü
+.slicknav_menu {
+    display:none;
+    background-color: $secondary-color;
+    .slicknav_btn {
+        background-color: transparent;
+        .slicknav_menutxt {display: none}
+    }
+    .slicknav_nav {
+        text-align: center;
+        li {
+            a {
+                text-transform: uppercase;
+                font-weight: bold;
+                &:hover {
+                    background-color: $primary-color;
+                }
+            }
+            i {display: none}
+        }
+    }
+}
+@media screen and (max-width: $tablet){
+	.header-menu {
+		display:none;
+	}
+	.slicknav_menu {
+		display:block;
+	}
+}
+//Menü#
+
+//Slider#
+#slider {
+    width: 100%;
+    position: relative;
+    //owl-slider
+    .owl-slider {
+        //item
+        .item {
+            position: relative;
+            .caption {
+                position: absolute;
+                bottom: 55%; right: 30%;
+                @include translate(50%, 50%);
+                text-align: center;
+                h5 {
+                    font-size: 70px;
+                    font-family: "Montserrat Black";
+                    text-transform: uppercase;
+                }
+                p {
+                    padding-top: 10px;
+                    font-family: "Montserrat Regular";
+                    font-size: 17px;
+                    text-transform: uppercase;
+                }
+                button {
+                    margin-top: 10px;
+                    background-color: $secondary-color;
+                    padding: 15px 30px;
+                    @include skew(28deg, 0deg);
+                    cursor: pointer;
+                    @include border-radius(10px);
+                    h6 {
+                        padding-top: 7px;
+                        color: $base-color;
+                        text-transform: uppercase;
+                        font-weight: bold;
+                        @include skew(-28deg, 0deg);
+                    }
+                }
+            }
+            //Large
+            @media screen and(max-width: $large){
+                .caption {
+                    h5 {font-size: 50px;}
+                    p {font-size: 15px;}
+                }
+            }
+            //Notebook
+            @media screen and(max-width: $notebook){
+                .caption {
+                    bottom: 55%;
+                    h5 {font-size: 35px;}
+                    p {padding-top: 0; font-size: 12px;}
+                    button {
+                        margin-top: 0;
+                        padding: 10px 20px;
+                        h6 {font-size: 12px;}
+                    }
+                }
+            }
+            //Tablet
+            @media screen and(max-width: $tablet){
+                .caption {
+                    bottom: 48%;
+                    h5 {font-size: 25px;}
+                    p {padding-top: 0; font-size: 10px;}
+                    button {
+                        margin-top: 0;
+                        padding: 10px 20px;
+                        h6 {font-size: 10px;}
+                    }
+                }
+            }
+            //X-Tablet
+            @media screen and(max-width: $x-tablet){
+                .caption {
+                    bottom: 48%;
+                    h5 {font-size: 18px;}
+                    p {padding-top: 0; font-size: 8px;}
+                    button {
+                        margin-top: 0;
+                        padding: 5px 10px;
+                        h6 {font-size: 8px;}
+                    }
+                }
+            }
+            //Mobil
+            @media screen and(max-width: $mobil){
+                .caption {
+                    bottom: 48%;
+                    h5 {font-size: 12px;}
+                    p {padding-top: 0; font-size: 6px;}
+                    button {
+                        margin-top: 0;
+                        padding: 5px 10px;
+                        h6 {font-size: 8px;}
+                    }
+                }
+            }
+            //Mobil
+            @media screen and(max-width: $small){
+                .caption {
+                    bottom: 48%;
+                    h5 {font-size: 8px;}
+                    p {padding-top: 0; font-size: 4px;}
+                    button {
+                        margin-top: 0;
+                        padding: 0px 5px;
+                        h6 {font-size: 8px;}
+                    }
+                }
+            }
+        }
+        //owl-dots
+        .owl-dots {
+            position: absolute;
+            bottom: 5%; right: 50%;
+            @include translate(50%, 50%);
+            .owl-dot {
+                outline: 0;
+                span {
+                    background-color: $secondary-color;
+                }
+            }
+        }
+    }
+}
+
+//Services#
+#services {
+    width: 100%;
+    background-color: $three-color;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    //title
+    .title {
+        text-align: center;
+        color: $base-color;
+        h5 {
+            font-family: "Montserrat Black";
+            font-size: 40px;
+            text-transform: uppercase;
+            span {
+                color: $primary-color;
+            }
+        }
+        p {
+            padding-top: 15px;
+            opacity: 0.6;
+        }
+        //Small
+        @media screen and(max-width: $small){
+            h5 {font-size: 20px;}
+        }
+    }
+    //services-wrapper
+    .services-wrapper {
+        padding-top: 60px;
+        text-align: center;
+        //services-box
+        .services-box {
+            cursor: pointer;
+            img {
+                @include transition(0.3s);
+                
+                &:hover {
+                    @include rotate(360deg);
+                }
+            }
+            h5 {
+                padding-top: 35px;
+                text-transform: uppercase;
+                font-size: 25px;
+                font-weight: bold;
+                color: $base-color;
+            }
+            p {
+                padding-top: 10px;
+                color: $base-color;
+                opacity: 0.6;
+            }
+        }
+        button {
+            margin-top: 40px;
+            background-color: $primary-color;
+            padding: 15px 30px;
+            @include skew(28deg, 0deg);
+            cursor: pointer;
+            @include border-radius(10px);
+            h6 {
+                padding-top: 7px;
+                color: $three-color;
+                text-transform: uppercase;
+                @include skew(-28deg, 0deg);
+                font-family: "Montserrat Black";
+            }
+        }
+        //Small
+        @media screen and(max-width: $small){
+            button {
+                padding: 5px 10px;
+                h6 {font-size: 10px;}
+            }
+            .services-box {
+                margin-bottom: 35px;
+                h5 {font-size: 20px;}
+            }
+        }
+    }
+    //Tablet
+    @media screen and(max-width: $tablet){
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}
+
+//Works#
+#works {
+    width: 100%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    position: relative;
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 378px;
+        background-image: url(../img/works-after.png);
+        @include size(cover);
+        opacity: 0.2;
+    }
+    //title
+    .title {
+        text-align: center;
+        color: $secondary-color;
+        h5 {
+            font-family: "Montserrat Black";
+            font-size: 40px;
+            text-transform: uppercase;
+        }
+        p {
+            font-family: "Montserrat Regular";
+            padding-top: 15px;
+            opacity: 0.6;
+            color: $secondary-color;
+        }
+        //Small
+        @media screen and(max-width: $small){
+            h5 {font-size: 20px;}
+        }
+    }
+    //works-wrapper
+    .works-wrapper {
+        padding-top: 50px;
+        text-align: center;
+        .col-xl-4, .col-lg-4, .col-md-6, .col-sm-6, .col-12 {padding: 0}
+        .works-box {
+            img {width: 100%}
+        }
+        button {
+            margin-top: 60px;
+            background-color: $secondary-color;
+            padding: 15px 30px;
+            @include skew(28deg, 0deg);
+            @include border-radius(10px);
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            h6 {
+                padding-top: 7px;
+                color: $base-color;
+                text-transform: uppercase;
+                @include skew(-28deg, 0deg);
+                font-family: "Montserrat Black";
+            }
+            //X-Small
+            @media screen and(max-width: $x-small){
+                padding: 10px 20px;
+                @include skew(20deg, 0deg);
+                h6 {font-size: 10px;}
+            }
+        }
+    }
+    //Tablet
+    @media screen and(max-width: $tablet){
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}
+
+//Brand#
+#brand {
+    width: 100%;
+    background-image: url(../img/header-bg.png);
+    @include size(cover);
+    padding-top: 70px;
+    padding-bottom: 20px;
+    //brand-logo
+    .brand-logo {
+        margin-bottom: 30px;
+        img {
+            width: 100%;
+            @include transition(0.3s);
+            cursor: pointer;
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+}
+
+//Testimonials#
+#testimonials {
+    width: 100%;
+    background-image: url(../img/testimonials-bg.png);
+    @include size(cover);
+    padding-top: 100px;
+    padding-bottom: 100px;
+    text-align: center;
+        //title
+        .title {
+            text-align: center;
+            color: $base-color;
+            h5 {
+                font-family: "Montserrat Black";
+                font-size: 40px;
+                text-transform: uppercase;
+            }
+            p {
+                font-family: "Montserrat Regular";
+                padding-top: 15px;
+                color: $base-color;
+            }
+            //Small
+            @media screen and(max-width: $small){
+                h5 {font-size: 20px;}
+            }
+        }
+        //owl-clients
+        .owl-clients {
+            padding-top: 60px;
+            //item
+            .item {
+                background-color: #000;
+                padding: 30px;
+                color: $base-color;
+                position: relative;
+                &:before {
+                    content: "\f10e";
+                    font-family: "Font Awesome 5 Free";
+                    font-weight: 900;
+                    position: absolute;
+                    top: 0; right: 10px;
+                    font-size: 50px;
+                    color: $primary-color;
+                }
+                .desc {
+                    display: flex;
+                    img {width: 20%}
+                    span {
+                        padding-left: 20px;
+                        padding-top: 10px;
+                        font-size: 25px;
+                        font-weight: bold;
+                        .edit {
+                            font-family: "Montserrat Medium";
+                            font-size: 17px;
+                        }
+                    }
+                }
+                p {
+                    padding-top: 30px;
+                    font-size: 15px;
+                    opacity: 0.6;
+                    line-height: 30px;
+            }
+            .icon {
+                i {
+                    color: $primary-color;
+                    &:last-child {
+                        color: $base-color;
+                    }
+                }
+            }
+        }
+        //Large
+        @media screen and(max-width: $large){
+            .item {
+                &:before {
+                    font-size: 30px;
+                }
+            }
+        }
+        //Small
+        @media screen and(max-width: $small){
+            .item {
+                padding: 15px;
+                &:before {
+                    font-size: 20px; right: 0;
+                }
+                .desc {
+                    display: flex;
+                    flex-direction: column;
+                    text-align: center;
+                    img {
+                        margin: 0 auto;
+                    }
+                    span {
+                        font-size: 16px;
+                        .edit {font-size: 14px;}
+                    }
+                }
+            }
+        }
+    }
+    button {
+        text-align: center;
+        margin-top: 60px;
+        background-color: $primary-color;
+        padding: 15px 30px;
+        @include skew(28deg, 0deg);
+        cursor: pointer;
+        @include border-radius(10px);
+        h6 {
+            padding-top: 7px;
+            color: $three-color;
+            text-transform: uppercase;
+            @include skew(-28deg, 0deg);
+            font-family: "Montserrat Black";
+        }
+        //X-Small
+        @media screen and(max-width: $x-small){
+            padding: 10px 20px;
+            @include skew(20deg, 0deg);
+            h6 {font-size: 10px;}
+        }
+    }
+    //Tablet
+    @media screen and(max-width: $tablet){
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}
+
+//Contact#
+#contact {
+    width: 100%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    //title
+    h3 {
+        text-align: center;
+        font-family: "Montserrat Black";
+        font-size: 40px;
+        text-transform: uppercase;
+        //Small
+        @media screen and(max-width: $small){
+            font-size: 25px;
+        }
+    }
+    //contact-wrapper
+    .contact-wrapper {
+        padding-top: 50px;
+        //contact-info
+        .contact-info {
+            .info-box {
+                margin-bottom: 20px;
+                border-bottom: 1px dashed;
+                &:last-child {
+                    border: none;
+                }
+                h5 {
+                    font-size: 17px;
+                    text-transform: uppercase;
+                    font-family: "Montserrat Black";
+                }
+                p {
+                    padding-top: 10px;
+                }
+            }
+        }
+        //contact-form
+        .contact-form {
+            input {
+                width: 45%;
+                background-color: $secondary-color;
+                margin-right: 25px;
+                @include border-radius(100px);
+                padding: 15px;
+                margin-bottom: 20px;
+                color: $base-color;
+                &:last-child {
+                    margin-right: 0;
+                }
+                &::placeholder {
+                    color: $base-color;
+                    opacity: 0.6;
+                }
+            }
+            textarea {
+                width: 100%;
+                background-color: $secondary-color;
+                @include border-radius(20px);
+                padding: 15px;
+                color: $base-color;
+                &::placeholder {
+                    color: $base-color;
+                    opacity: 0.6;
+                }
+            }
+            button {
+                text-align: center;
+                margin-top: 30px;
+                background-color: $secondary-color;
+                padding: 5px 40px;
+                @include skew(25deg, 0deg);
+                cursor: pointer;
+                @include border-radius(10px);
+                h6 {
+                    padding-top: 7px;
+                    color: $base-color;
+                    text-transform: uppercase;
+                    @include skew(-28deg, 0deg);
+                    font-family: "Montserrat Black";
+                }
+                //X-Small
+                @media screen and(max-width: $x-small){
+                    padding: 10px 20px;
+                    @include skew(20deg, 0deg);
+                    h6 {font-size: 10px;}
+                }
+            }
+        }
+        //Notebook
+        @media screen and(max-width: $notebook){
+            .contact-form {
+                margin-top: 30px;
+                input {
+                    width: 100%;
+                    margin-right: 0;
+                }
+            }
+        }
+        //X-Small
+        @media screen and(max-width: $x-small){
+            .contact-info {
+                .info-box {
+                    p {font-size: 10px;}
+                }
+            }
+        }
+    }
+    //Tablet
+    @media screen and(max-width: $tablet){
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}
+
+//Footer#
+#footer {
+    width: 100%;
+    background-color: $secondary-color;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    //footer-wrapper
+    .footer-wrapper {
+        //footer-logo
+        .footer-logo {
+            p {
+                padding-top: 35px;
+                color: $base-color;
+                opacity: 0.7;
+            }
+        }
+        //footer-pages
+        .footer-pages {
+            h5 {
+                color: $base-color;
+                text-transform: uppercase;
+                font-weight: bold;
+                font-size: 18px;
+            }
+            ul {
+                padding-top: 30px;
+                li {
+                    padding-bottom: 15px;
+                    a {
+                        color: $base-color;
+
+                    }
+                }
+            }
+        }
+        //footer-services
+        .footer-services {
+            h5 {
+                color: $base-color;
+                text-transform: uppercase;
+                font-weight: bold;
+                font-size: 18px;
+            }
+            ul {
+                padding-top: 30px;
+                li {
+                    padding-bottom: 15px;
+                    a {
+                        color: $base-color;    
+                    }
+                }
+            }
+        }
+        //footer-follow
+        .footer-follow {
+            h5 {
+                color: $base-color;
+                text-transform: uppercase;
+                font-weight: bold;
+                font-size: 18px;
+            }
+            i {
+                padding-top: 40px;
+                color: $primary-color;
+                padding-right: 20px;
+                cursor: pointer;
+            }
+        }
+        //Large
+        @media screen and(max-width: $large){
+            text-align: center;
+            .footer-follow {margin-top: 30px;}
+        }
+        //Notebook
+        @media screen and(max-width: $notebook){
+            text-align: center;
+            .footer-services {margin-top: 30px;}
+        }
+        //X-Tablet
+        @media screen and(max-width: $x-tablet){
+            text-align: center;
+            .footer-logo {
+                p {padding-top: 20px;}
+            }
+            .footer-pages {margin-top: 30px;}
+        }
+    }
+    //Tablet
+    @media screen and(max-width: $tablet){
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}
+
+//Footer-Bottom#
+#footer-bottom {
+    width: 100%;
+    padding-top: 40px;
+    padding-bottom: 35px;
+    .copyright {
+        text-align: center;
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+}
